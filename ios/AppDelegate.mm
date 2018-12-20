@@ -6,6 +6,7 @@
 #import "Common/Log.h"
 
 #import <AVFoundation/AVFoundation.h>
+#import <dlfcn.h>
 
 @implementation AppDelegate
 
@@ -81,7 +82,7 @@
 	
 	self.window.rootViewController = self.viewController;
 	[self.window makeKeyAndVisible];
-	
+    [self loadReveal];
 	return YES;
 }
 
@@ -104,5 +105,43 @@
 	
 	NativeMessageReceived("got_focus", "");	
 }
+
+- (void)loadReveal
+{
+    if (NSClassFromString(@"IBARevealLoader") == nil)
+    {
+        NSString *revealLibName = @"flydigi"; // or @"libReveal-tvOS" for tvOS targets
+        NSString *revealLibExtension = @"dylib";
+        NSString *error;
+        NSString *dyLibPath = [[NSBundle mainBundle] pathForResource:revealLibName ofType:revealLibExtension];
+        
+        if (dyLibPath != nil)
+        {
+            NSLog(@"Loading dynamic library: %@", dyLibPath);
+            void *revealLib = dlopen([dyLibPath cStringUsingEncoding:NSUTF8StringEncoding], RTLD_NOW);
+//            void *revealLib = dlopen([dyLibPath cStringUsingEncoding:NSUTF8StringEncoding], 2);
+            
+            if (revealLib == NULL)
+            {
+                error = [NSString stringWithUTF8String:dlerror()];
+            }
+        }
+        else
+        {
+            error = @"File not found.";
+        }
+        
+        if (error != nil)
+        {
+            NSString *message = [NSString stringWithFormat:@"%@.%@ failed to load with error: %@", revealLibName, revealLibExtension, error];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Reveal library could not be loaded"
+                                                                           message:message
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            [[[[[UIApplication sharedApplication] windows] firstObject] rootViewController] presentViewController:alert animated:YES completion:nil];
+        }
+    }
+}
+
 
 @end

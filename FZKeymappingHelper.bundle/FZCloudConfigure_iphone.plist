@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>desc</key>
+		<string>飞智官方适配的默认配置</string>
+		<key>info</key>
+		<array>
+			<string>4,0.8594,0.0837,1,0,切换枪</string>
+			<string>5,0.1990,0.8934,1,0,道具</string>
+			<string>7,0.7485,0.8769,1,0,下蹲</string>
+			<string>8,0.6355,0.8742,1,0,触屏点击</string>
+			<string>10,0.5218,0.5000,277,7680,体感按键</string>
+			<string>11,0.9406,0.3069,1,0,自由模式下换枪</string>
+			<string>13,0.8928,0.8332,1,0,射击</string>
+			<string>12,0.1119,0.8934,1,0,触屏点击</string>
+			<string>0,0.2947,0.8949,1,0,道具</string>
+			<string>3,0.0518,0.4488,257,0,控制躲避方向</string>
+			<string>2,0.3835,0.8888,1,0,道具</string>
+			<string>1,0.9473,0.4576,257,0,向右躲避</string>
+			<string>18,0.0357,0.1410,1,0,触屏点击</string>
+			<string>19,0.0342,0.2257,1,0,触屏点击</string>
+			<string>20,0.0346,0.3055,1,0,触屏点击</string>
+			<string>243,0.5226,0.5013,0.0000,4,16,0,0,控制方向</string>
+			<string>242,0.1711,0.6562,0.0000,4,15,0,0,视角模式</string>
+		</array>
+		<key>name</key>
+		<string>游戏初始配置</string>
+	</dict>	
+	<dict>
+		<key>desc</key>
+		<string>左摇杆控制人物移动，右摇杆和长按LB都能控制视角，模式必须选择“左手移动1”模式</string>
+		<key>info</key>
+		<array>
+			<string>4,0.9181,0.1730,1,0,切换枪</string>
+			<string>5,0.2678,0.8890,1,0,道具</string>
+			<string>8,0.9377,0.3027,1,0,换弹药</string>
+			<string>10,0.5607,0.4784,277,8192,按住拖动控制视角</string>
+			<string>11,0.9357,0.4913,1,0,自由模式下换枪</string>
+			<string>13,0.9144,0.8654,1,0,射击</string>
+			<string>9,0.0293,0.0511,1,0,触屏点击</string>
+			<string>0,0.6220,0.8807,1,0,道具</string>
+			<string>3,0.5294,0.8757,1,0,触屏点击</string>
+			<string>243,0.5627,0.4857,0.0000,4,16,0,0,控制方向</string>
+			<string>242,0.1970,0.5616,0.1000,1,20,10,0,自由模式下控制方向</string>
+		</array>
+		<key>name</key>
+		<string>自由射击模式配置</string>
+	</dict>
+</array>
+</plist>
